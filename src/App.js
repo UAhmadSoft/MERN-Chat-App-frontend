@@ -32,7 +32,7 @@ const App = () => {
             />
             <Route exact path='/create' component={CreateRoomForm} />
             <Route exact path='/join' component={JoinRoomForm} />
-            <Route  path='/' component{JoinRoomForm} />
+            <Route path='/' component={JoinRoomForm} />
          </Switch>
       </div>
    );
