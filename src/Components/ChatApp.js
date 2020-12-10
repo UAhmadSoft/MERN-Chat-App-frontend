@@ -37,6 +37,7 @@ const ChatApp = () => {
       socket.on('userJoined', (data) => {
          console.log('data', data);
          if (data.socketId !== socket.id) {
+            setRoom(data.room);
             // Only For Broadcast , NOT for sender
             toast.info(`${data.userName} Joined the room`, {
                position: 'bottom-left',

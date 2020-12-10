@@ -37,6 +37,7 @@ const ChatAppNav = (props) => {
       socket.on('userLeft', (data) => {
          console.log('data', data);
          if (data.socketId !== socket.id) {
+            setRoom(data.room);
             // Only For Broadcast , NOT for sender
             toast.dark(`${data.user.name} left the room`, {
                position: 'bottom-left',
