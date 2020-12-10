@@ -32,6 +32,7 @@ const App = () => {
             />
             <Route exact path='/create' component={CreateRoomForm} />
             <Route exact path='/join' component={JoinRoomForm} />
+            <Route path='/' render={() => (window.location.href = '/room')} />
          </Switch>
       </div>
    );
