@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { RoomProvider } from './Contexts/roomContext';
+import { SocketProvider } from './Contexts/socketContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+   <BrowserRouter>
+      <RoomProvider>
+         <SocketProvider>
+            <App />
+         </SocketProvider>
+      </RoomProvider>
+   </BrowserRouter>,
+   document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
