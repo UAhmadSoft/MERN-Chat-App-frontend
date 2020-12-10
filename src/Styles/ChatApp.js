@@ -1,3 +1,4 @@
+import { genMediaQuery } from './GenMediaQuery';
 import { makeStyles } from '@material-ui/core/styles';
 
 const drawerWidth = 240;
@@ -24,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
       }),
    },
    appBarShift: {
+      [genMediaQuery('md')]: {
+         width: '100%',
+      },
       width: `calc(100% - ${drawerWidth}px)`,
       marginLeft: drawerWidth,
       transition: theme.transitions.create(['margin', 'width'], {
@@ -39,9 +43,15 @@ const useStyles = makeStyles((theme) => ({
    },
    drawer: {
       width: drawerWidth,
+      [genMediaQuery('md')]: {
+         width: 0,
+      },
       flexShrink: 0,
    },
    drawerPaper: {
+      [genMediaQuery('md')]: {
+         width: 0,
+      },
       width: drawerWidth,
    },
    drawerHeader: {
@@ -67,6 +77,12 @@ const useStyles = makeStyles((theme) => ({
       }),
       marginLeft: drawerWidth,
       marginTop: appBarHeight,
+      // [genMediaQuery('lg')]: {
+      //    gridTemplateColumns: 'repeat(2,50%)',
+      // },
+      [genMediaQuery('md')]: {
+         width: '100%',
+      },
    },
    contentShift: {
       transition: theme.transitions.create('margin', {
