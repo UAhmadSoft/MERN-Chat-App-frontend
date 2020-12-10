@@ -58,15 +58,34 @@ const CreateRoomForm = () => {
             clearTxt2();
          }
       } catch (err) {
-         toast.error('Error Creating Room ...Try Selecting another Room Name', {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-         });
+         console.log('err', err);
+         if (err.response.status === 403) {
+            toast.error(
+               'This Room name already taken ... Select any other name',
+               {
+                  position: 'top-right',
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+               }
+            );
+         } else {
+            toast.error(
+               'Error Creating Room ...Try Selecting another Room Name',
+               {
+                  position: 'top-right',
+                  autoClose: 5000,
+                  hideProgressBar: false,
+                  closeOnClick: true,
+                  pauseOnHover: true,
+                  draggable: true,
+                  progress: undefined,
+               }
+            );
+         }
          console.log('err', err);
       }
 

@@ -31,6 +31,7 @@ const ChatApp = () => {
    const classes = useStyles();
    const { room, currentUser, setRoom } = useContext(RoomContext);
    const { socket } = useContext(SocketContext);
+   const [messages, setMessages] = useState(room.messages);
 
    React.useEffect(() => {
       socket.on('userJoined', (data) => {
@@ -56,7 +57,7 @@ const ChatApp = () => {
             setRoom(data.room);
          }
       });
-   }, [socket]);
+   }, [socket, setRoom, messages]);
 
    const addNewMsg = async (msg) => {
       const newMessage = {
@@ -92,8 +93,6 @@ const ChatApp = () => {
          });
       }
    };
-
-   const [messages, setMessages] = useState(room.messages);
 
    const open = true;
 
